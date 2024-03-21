@@ -1,0 +1,24 @@
+# DataSource Config
+#spring:
+#  datasource:
+#    driver-class-name: org.postgresql.Driver
+#    url: jdbc:postgresql://127.0.0.1/plmisdb
+#    username: postgres
+#    password: postgres
+spring:
+  datasource:
+    dynamic:
+      primary: db01 #设置默认的数据源或者数据源组,默认值即为master
+      strict: false #设置严格模式,默认false不启动. 启动后在未匹配到指定数据源时候回抛出异常,不启动会使用默认数据源.
+      datasource:
+        db01:
+          url: jdbc:postgresql://127.0.0.1/plmisdb
+          username: postgres
+          password: postgres
+          driver-class-name: org.postgresql.Driver
+        db02:
+          url: jdbc:postgresql://127.0.0.1/lsjd18
+          username: postgres
+          password: postgres
+          driver-class-name: org.postgresql.Driver
+
